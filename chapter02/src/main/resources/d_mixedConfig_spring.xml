@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="blankDisc" class="d_mixedConfig.BlankDisc">
+        <property name="title" value="勇气"/>
+        <property name="artist" value="梁静茹"/>
+        <property name="tracks">
+            <list>
+                <value>勇气</value>
+                <value>暖暖</value>
+                <value>偶阵雨</value>
+                <value>分手快乐</value>
+                <value>大手牵小手</value>
+                <value>......</value>
+            </list>
+        </property>
+    </bean>
+</beans>

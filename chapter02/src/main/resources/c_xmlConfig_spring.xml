@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="c_xmlConfig.SgtPeppersDisk"/>
+
+    <bean id="blankDisk" class="c_xmlConfig.BlankDisk">
+        <constructor-arg name="title" value="孤单的心"/>
+        <constructor-arg name="artist" value="甲壳虫乐队"/>
+        <constructor-arg name="tracks">
+            <list>
+                <value>song 1</value>
+                <value>song 2</value>
+                <value>song 3</value>
+                <value>song 4</value>
+                <value>song 5</value>
+                <value>song 6</value>
+                <value>......</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="c_xmlConfig.CDPlayer">
+        <constructor-arg ref="blankDisk"/>
+    </bean>
+</beans>

@@ -1,5 +1,6 @@
 package spittr.controller;
 
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/spittles")
+@Setter
 public class SpittleController {
 
     @Autowired
@@ -23,21 +25,24 @@ public class SpittleController {
 
     private static final String MAX_LONG_AS_STRING = "9223372036854775807";
 
-    //与方法spittles(Model model)等效。逻辑视图的名称将会根据请求路径推断得出。因为这个方法处理针对“/spittles”的GET请求，
-    //因此视图的名称将会是spittles（去掉开头的斜线）
+    // 与方法spittles(Model model)等效。逻辑视图的名称将会根据请求路径推断得出。因为这个方法处理针对“/spittles”的GET请求，
+    // 因此视图的名称将会是spittles（去掉开头的斜线）
+    // http://localhost:8080/spittles?max=10&count=10
+    @RequestMapping
     public List<Spittle> spittles(@RequestParam(defaultValue = MAX_LONG_AS_STRING) long max,
-                                  @RequestParam(defaultValue = "20") int count){
-        return spittleRepository.findSpittles(max,count);
+                                  @RequestParam(defaultValue = "2") int count) {
+        return spittleRepository.findSpittles(max, count);
     }
 
-//    public String spittles(Model model){
-//        model.addAttribute("spittleList",spittleRepository.findSpittles(Long.MAX_VALUE,20));
+//    @RequestMapping
+//    public String spittles(Model model) {
+//        model.addAttribute("spittleList", spittleRepository.findSpittles(Long.MAX_VALUE, 20));
 //        return "spittles";
 //    }
 
     @RequestMapping("/{id}")
-    public String spittle(@PathVariable long id, Model model){
-        model.addAttribute("spittle",spittleRepository.findOne(id));
+    public String spittle(@PathVariable long id, Model model) {
+        model.addAttribute("spittle", spittleRepository.findOne(id));
         return "spittle";
     }
 

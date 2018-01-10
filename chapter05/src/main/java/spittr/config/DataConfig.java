@@ -15,15 +15,16 @@ import javax.sql.DataSource;
 public class DataConfig {
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("classpath:schema.sql")
+                .addScript("classpath:test-data.sql")
                 .build();
     }
 
     @Bean
-    public JdbcTemplate template(DataSource dataSource){
+    public JdbcTemplate template(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 

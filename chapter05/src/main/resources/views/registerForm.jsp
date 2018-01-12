@@ -8,7 +8,7 @@
 <body>
 <h1>Register</h1>
 
-<form method="post">
+<form action="/spitter/register" method="post">
     First Name : <input type="text" name="firstName"/><br/>
     Last Name: <input type="text" name="lastName"/><br/>
     Email: <input type="email" name="email"/><br/>

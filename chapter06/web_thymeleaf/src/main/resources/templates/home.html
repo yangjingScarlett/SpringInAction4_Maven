@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spitter</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="header" th:include="page :: header"></div>
+
+<div id="content">
+    <h1>Welcome to Spitter</h1>
+
+    <a th:href="@{/spittles}">Spittles</a> |
+    <a th:href="@{/spitter/register}">Register</a>
+
+    <br/>
+
+    View: <span th:text="${view}">unknown</span>
+</div>
+
+<div id="footer" th:include="page :: copy"></div>
+
+</body>
+</html>

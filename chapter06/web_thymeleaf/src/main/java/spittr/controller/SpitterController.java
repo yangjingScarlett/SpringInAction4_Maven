@@ -12,7 +12,6 @@ import spittr.model.Spitter;
 import spittr.repository.SpitterRepository;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * Created by yangjing on 2018/1/10
@@ -25,15 +24,9 @@ public class SpitterController {
     @Autowired
     private SpitterRepository spitterRepository;
 
-    @RequestMapping
-    public String findSpitters(Model model) {
-        List<Spitter> spitterList = spitterRepository.findSpitters();
-        model.addAttribute("spitterList", spitterList);
-        return "spitters";
-    }
-
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String registerForm() {
+    public String registerForm(Model model) {
+        model.addAttribute("spitter", new Spitter());
         return "registerForm";
     }
 

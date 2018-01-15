@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spitter</title>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="header" th:include="page :: header"></div>
+
+<div id="content">
+    <div class="spittleView">
+        <div class="spittleMessage" th:text="${spittle.message}">Spittle message</div>
+        <div>
+            <span class="spittleTime" th:text="${spittle.time}">spittle timestamp</span>
+        </div>
+    </div>
+</div>
+<div id="footer" th:include="page :: copy"></div>
+
+</body>
+</html>

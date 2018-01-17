@@ -6,7 +6,7 @@
     <title>Spittr</title>
     <link rel="stylesheet"
           type="text/css"
-          href="<s:url value="/css/style.css" />">
+          href="<s:url value="/static/css/style.css" />">
 </head>
 <body>
 <div id="header">

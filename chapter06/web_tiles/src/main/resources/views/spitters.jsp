@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Spitters</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>">
 </head>
 <body>
 <div class="listTitle">

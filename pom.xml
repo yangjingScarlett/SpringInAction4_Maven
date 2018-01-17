@@ -17,6 +17,7 @@
         <module>chapter06/web_jsp</module>
         <module>chapter06/web_tiles</module>
         <module>chapter06/web_thymeleaf</module>
+        <module>chapter07</module>
     </modules>
 
     <properties>

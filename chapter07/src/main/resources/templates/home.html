@@ -11,14 +11,15 @@
 <div id="header" th:include="page :: header"></div>
 
 <div id="content">
-    <div class="spittleView">
-        <div class="spittleMessage" th:text="${spittle.message}">Spittle message</div>
-        <div>
-            <span class="spittleTime" th:text="${spittle.time}">spittle timestamp</span>
-        </div>
-    </div>
+    <h1>Welcome to Spitter</h1>
+
+    <a th:href="@{/spittles}">Spittles</a> |
+    <a th:href="@{/spitter/register}">Register</a>
+
+    <br/>
+
+    View: <span th:text="${view}">unknown</span>
 </div>
 <div id="footer" th:include="page :: copy"></div>
-
 </body>
 </html>

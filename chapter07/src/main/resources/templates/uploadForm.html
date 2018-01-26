@@ -1,8 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Spitter</title>
+    <title>UploadForm</title>
     <link rel="stylesheet"
           type="text/css"
           th:href="@{/static/css/style.css}"/>
@@ -11,14 +10,14 @@
 <div id="header" th:include="page :: header"></div>
 
 <div id="content">
-    <div class="spittleView">
-        <div class="spittleMessage" th:text="${spittle.message}">Spittle message</div>
-        <div>
-            <span class="spittleTime" th:text="${spittle.time}">spittle timestamp</span>
-        </div>
-    </div>
+    <h1>Welcome to UploadForm</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"/><br/>
+        <input type="submit"/>
+    </form>
+
 </div>
 <div id="footer" th:include="page :: copy"></div>
-
 </body>
 </html>

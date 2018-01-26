@@ -11,14 +11,12 @@
 <div id="header" th:include="page :: header"></div>
 
 <div id="content">
-    <div class="spittleView">
-        <div class="spittleMessage" th:text="${spittle.message}">Spittle message</div>
-        <div>
-            <span class="spittleTime" th:text="${spittle.time}">spittle timestamp</span>
-        </div>
-    </div>
+    <h1>Your Profile</h1>
+    <span th:text="${spitter.username}">username</span><br/>
+    <span th:text="${spitter.firstName}">First</span> <span th:text="${spitter.lastName}">Last</span><br/>
+    <span th:text="${spitter.email}">email</span>
 </div>
-<div id="footer" th:include="page :: copy"></div>
 
+<div id="footer" th:include="page :: copy"></div>
 </body>
 </html>

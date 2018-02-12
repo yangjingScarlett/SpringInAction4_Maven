@@ -27,8 +27,9 @@ public class SpitterRepositoryImpl implements SpitterRepository {
 
     @Override
     public void save(Spitter spitter) {
-        jdbcTemplate.update("insert into Spitter values (?,?,?,?,?,?)",
-                spitter.getId(), spitter.getUsername(), spitter.getPassword(),
+        jdbcTemplate.update("insert into Spitter(username, password, first_name, last_name, email) " +
+                        "values (?,?,?,?,?)",
+                spitter.getUsername(), spitter.getPassword(),
                 spitter.getFirstName(), spitter.getLastName(), spitter.getEmail());
     }
 
@@ -39,8 +40,8 @@ public class SpitterRepositoryImpl implements SpitterRepository {
             Long id = rs.getLong("id");
             String username = rs.getString("username");
             String password = rs.getString("password");
-            String firstName = rs.getString("firstName");
-            String lastName = rs.getString("lastName");
+            String firstName = rs.getString("first_name");
+            String lastName = rs.getString("last_name");
             String email = rs.getString("email");
             return new Spitter(id, username, password, firstName, lastName, email);
         }

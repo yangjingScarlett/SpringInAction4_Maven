@@ -23,13 +23,15 @@ public class SpittleRepositoryImpl implements SpittleRepository {
 
     @Override
     public List<Spittle> findSpittles(long max, int count) {
-        return jdbcTemplate.query("select * from Spittle where id < ? order by created_at desc limit ?",
+        List<Spittle> spittleList = jdbcTemplate.query("select * from Spittle where id < ? order by created_at desc limit ?",
                 new MyRowMapper(), max, count);
+        return spittleList.size() > 0 ? spittleList : null;
     }
 
     @Override
     public Spittle findOne(long id) {
-        return jdbcTemplate.queryForObject("select * from Spittle where id = ?", new MyRowMapper(), id);
+        List<Spittle> spittles = jdbcTemplate.query("select * from Spittle where id = ?", new MyRowMapper(), id);
+        return spittles.size() > 0 ? spittles.get(0) : null;
     }
 
     @Override

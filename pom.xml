@@ -18,6 +18,7 @@
         <module>chapter06/web_tiles</module>
         <module>chapter06/web_thymeleaf</module>
         <module>chapter07</module>
+        <module>chapter09</module>
     </modules>
 
     <properties>

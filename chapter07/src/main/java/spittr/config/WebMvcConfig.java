@@ -3,7 +3,6 @@ package spittr.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -23,11 +22,6 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 @ComponentScan("spittr")
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
-
-    @Bean
-    public PropertySourcesPlaceholderConfigurer configurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -65,8 +59,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public MultipartResolver multipartResolver() {
-        StandardServletMultipartResolver multipartResolver = new StandardServletMultipartResolver();
-        return multipartResolver;
+        return new StandardServletMultipartResolver();
     }
 
 }

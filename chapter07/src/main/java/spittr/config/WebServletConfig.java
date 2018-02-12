@@ -2,6 +2,7 @@ package spittr.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -20,13 +21,14 @@ public class WebServletConfig implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(WebMvcConfig.class);
+        servletContext.addListener(new ContextLoaderListener(context));
         context.setServletContext(servletContext);
 
         ServletRegistration.Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
         dynamic.addMapping("/");
         dynamic.setLoadOnStartup(1);
         dynamic.setAsyncSupported(true);//开启异步方法支持，这是实现服务器端推送的一种方式
-        dynamic.setMultipartConfig(new MultipartConfigElement("E:/upload/", 2097152, 4194304, 0));
+        dynamic.setMultipartConfig(new MultipartConfigElement("E:/upload/"));
     }
 
 }

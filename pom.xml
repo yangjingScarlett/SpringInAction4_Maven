@@ -19,6 +19,7 @@
         <module>chapter06/web_thymeleaf</module>
         <module>chapter07</module>
         <module>chapter09</module>
+        <module>chapter10</module>
     </modules>
 
     <properties>

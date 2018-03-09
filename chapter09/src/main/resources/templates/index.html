@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spitter</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    Hello here ...
+    <span sec:authentication="name">user-name</span>
+</div>
+
+<div id="header" th:include="page :: header"></div>
+
+<div id="content">
+    <h1>Welcome to Spittr!</h1>
+    <a th:href="@{/spittles}">Spittles</a><br/>
+    Views:<span th:text="${view}">Unknown</span>
+</div>
+
+<div id="footer" th:include="page :: copy"></div>
+</body>
+</html>

@@ -20,6 +20,9 @@
         <module>chapter07</module>
         <module>chapter09</module>
         <module>chapter10</module>
+        <module>chapter11/hibernate4</module>
+        <module>chapter11/jpahibernate</module>
+        <module>chapter11/jpaspringdata</module>
     </modules>
 
     <properties>

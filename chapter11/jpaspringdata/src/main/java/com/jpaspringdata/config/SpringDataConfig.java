@@ -1,13 +1,13 @@
-package com.jpahibernate.config;
+package com.jpaspringdata.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -15,25 +15,20 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
- * Created by yangjing on 2018/3/14
+ * Created by yangjing on 2018/3/15
  */
 @Configuration
-@ComponentScan("com.jpahibernate")
-@EnableTransactionManagement
-@PropertySource(value = "classpath:property.properties")
-public class JpaConfig {
+@EnableJpaRepositories(basePackages = "com.jpaspringdata")
+@PropertySource("classpath:jdbc.properties")
+public class SpringDataConfig {
 
     @Autowired
     private Environment environment;
-//    @Value不可以在@Configuration 配置类中使用 加载顺序决定 只能在@service @control 等bean中使用
-//    @Value("driverClassName")
-//    String driverClassName;
 
     @Bean
     public DataSource dataSource() {
@@ -52,22 +47,21 @@ public class JpaConfig {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         jpaVendorAdapter.setDatabase(Database.ORACLE);
+        jpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.Oracle10gDialect");
         jpaVendorAdapter.setShowSql(true);
         jpaVendorAdapter.setGenerateDdl(false);
-        jpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.Oracle10gDialect");
         return jpaVendorAdapter;
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-        entityManagerFactoryBean.setPackagesToScan("com.jpahibernate.domain");
-        return entityManagerFactoryBean;
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource);
+        emf.setJpaVendorAdapter(jpaVendorAdapter);
+        emf.setPackagesToScan("com.jpaspringdata.domain");
+        return emf;
     }
 
-    //将bean产生的异常转换成Spring的统一数据访问异常,将所有的数据访问异常置于Spring的体系之下，方便以后切换持久化机制
     @Bean
     public PersistenceExceptionTranslationPostProcessor postProcessor() {
         return new PersistenceExceptionTranslationPostProcessor();
@@ -75,17 +69,18 @@ public class JpaConfig {
 
     @Configuration
     @EnableTransactionManagement
-    public static class TransactionConfig implements TransactionManagementConfigurer {
+    public static class TransactionConfig {
 
+        //这里的属性名称要与LocalContainerEntityManagerFactoryBean的方法名称一致
         @Autowired
         private EntityManagerFactory entityManagerFactory;
 
-        public PlatformTransactionManager annotationDrivenTransactionManager() {
+        @Bean
+        public PlatformTransactionManager transactionManager() {
             JpaTransactionManager transactionManager = new JpaTransactionManager();
             transactionManager.setEntityManagerFactory(entityManagerFactory);
             return transactionManager;
         }
-
     }
 
 }

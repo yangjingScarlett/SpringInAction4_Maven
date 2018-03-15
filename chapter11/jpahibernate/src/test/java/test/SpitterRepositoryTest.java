@@ -34,8 +34,8 @@ public class SpitterRepositoryTest {
     @Transactional
     public void saveTest() {
         log.info("spitter's count : {}", spitterRepository.count());
-        Spitter spitter = new Spitter("newbee", "letmein", "New Bee",
-                "newbee@habuma.com", "Y");
+        Spitter spitter = new Spitter(null, "newbee", "letmein", "New Bee",
+                "newbee@habuma.com", "Y", "Elite");
         Spitter saved = spitterRepository.save(spitter);
         log.info("spitter's count : {}", spitterRepository.count());
         log.info("spitter: [" +
@@ -44,9 +44,10 @@ public class SpitterRepositoryTest {
                         " password: {}," +
                         " fullName: {}," +
                         " email: {}," +
-                        " updateByEmail: {}]",
+                        " updateByEmail: {}," +
+                        " status: {}]",
                 saved.getId(), saved.getUsername(), saved.getPassword(),
-                saved.getFullname(), saved.getEmail(), saved.getUpdateByEmail());
+                saved.getFullname(), saved.getEmail(), saved.getUpdateByEmail(), saved.getStatus());
     }
 
     @Test
@@ -59,9 +60,10 @@ public class SpitterRepositoryTest {
                         " password: {}," +
                         " fullName: {}," +
                         " email: {}," +
-                        " updateByEmail: {}]",
+                        " updateByEmail: {}" +
+                        " status: {}]",
                 spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail());
+                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus());
     }
 
     @Test
@@ -74,9 +76,10 @@ public class SpitterRepositoryTest {
                         " password: {}," +
                         " fullName: {}," +
                         " email: {}," +
-                        " updateByEmail: {}]",
+                        " updateByEmail: {}" +
+                        " status: {}]",
                 spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail());
+                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus());
     }
 
     @Test
@@ -90,9 +93,10 @@ public class SpitterRepositoryTest {
                             " password: {}," +
                             " fullName: {}," +
                             " email: {}," +
-                            " updateByEmail: {}]",
+                            " updateByEmail: {}" +
+                            " status: {}]",
                     spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail());
+                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus());
         }
     }
 

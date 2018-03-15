@@ -34,11 +34,7 @@ public class Spitter {
     @Column(name = "UPDATE_BY_EMAIL")
     private String updateByEmail;
 
-    public Spitter(String username, String password, String fullname, String email, String updateByEmail) {
-        this.username = username;
-        this.password = password;
-        this.fullname = fullname;
-        this.email = email;
-        this.updateByEmail = updateByEmail;
-    }
+    @Column(name = "STATUS")
+    private String status;
+
 }

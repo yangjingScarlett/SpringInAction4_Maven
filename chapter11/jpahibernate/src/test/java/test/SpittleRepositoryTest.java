@@ -39,11 +39,11 @@ public class SpittleRepositoryTest {
         Spittle spittle = spittleRepository.findById(13);
         Spitter spitter = spittle.getSpitter();
         log.info("spittle:[id:{}," +
-                        "  spitter:[{}, {}, {}, {}, {}, {}], " +
+                        "  spitter:[{}, {}, {}, {}, {}, {}, {}], " +
                         "  message:{}," +
                         "  postedTime:{}]",
                 spittle.getId(), spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(),
+                spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus(),
                 spittle.getMessage(), spittle.getPostTime());
     }
 
@@ -57,11 +57,11 @@ public class SpittleRepositoryTest {
         log.info("spittle's count : {}", spittleRepository.count());
         Spitter savedSpitter = saved.getSpitter();
         log.info("spittle:[id:{}," +
-                        "  spitter:[{}, {}, {}, {}, {}, {}], " +
+                        "  spitter:[{}, {}, {}, {}, {}, {}, {}], " +
                         "  message:{}," +
                         "  postedTime:{}]",
                 saved.getId(), savedSpitter.getId(), savedSpitter.getUsername(), savedSpitter.getPassword(),
-                savedSpitter.getFullname(), savedSpitter.getEmail(), savedSpitter.getUpdateByEmail(),
+                savedSpitter.getFullname(), savedSpitter.getEmail(), savedSpitter.getUpdateByEmail(), savedSpitter.getStatus(),
                 saved.getMessage(), saved.getPostTime());
     }
 
@@ -72,11 +72,11 @@ public class SpittleRepositoryTest {
         for (Spittle spittle : spittleList) {
             Spitter spitter = spittle.getSpitter();
             log.info("spittle:[id:{}," +
-                            "  spitter:[{}, {}, {}, {}, {}, {}], " +
+                            "  spitter:[{}, {}, {}, {}, {}, {}, {}], " +
                             "  message:{}," +
                             "  postedTime:{}]",
                     spittle.getId(), spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(),
+                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus(),
                     spittle.getMessage(), spittle.getPostTime());
         }
     }
@@ -88,11 +88,11 @@ public class SpittleRepositoryTest {
         for (Spittle spittle : spittleList) {
             Spitter spitter = spittle.getSpitter();
             log.info("spittle:[id:{}," +
-                            "  spitter:[{}, {}, {}, {}, {}, {}], " +
+                            "  spitter:[{}, {}, {}, {}, {}, {}, {}], " +
                             "  message:{}," +
                             "  postedTime:{}]",
                     spittle.getId(), spitter.getId(), spitter.getUsername(), spitter.getPassword(),
-                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(),
+                    spitter.getFullname(), spitter.getEmail(), spitter.getUpdateByEmail(), spitter.getStatus(),
                     spittle.getMessage(), spittle.getPostTime());
         }
     }

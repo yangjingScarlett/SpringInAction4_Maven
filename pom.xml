@@ -24,6 +24,7 @@
         <module>chapter11/jpahibernate</module>
         <module>chapter11/jpaspringdata</module>
         <module>chapter13</module>
+        <module>chapter14</module>
     </modules>
 
     <properties>

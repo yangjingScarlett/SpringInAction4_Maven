@@ -25,6 +25,8 @@
         <module>chapter11/jpaspringdata</module>
         <module>chapter13</module>
         <module>chapter14</module>
+        <module>chapter16/rest_contentNegotiation</module>
+        <module>chapter16/rest_messageConverters</module>
     </modules>
 
     <properties>

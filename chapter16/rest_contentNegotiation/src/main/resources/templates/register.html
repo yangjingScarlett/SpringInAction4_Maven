@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Register</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+</head>
+<body>
+<div id="header" th:include="page :: header"></div>
+
+<div id="content">
+    <h1>Register</h1>
+
+    <form method="post" th:object="${spitter}" th:action="@{/spitter/register}">
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err:${#fields.errors('*')}" th:text="${err}">
+                    Input is incorrect
+                </li>
+            </ul>
+        </div>
+
+        <label for="username" th:class="${#fields.hasErrors('username')}?'error'">Username:</label>
+        <input type="text" id="username" th:field="*{username}"
+               th:class="${#fields.hasErrors('username')}? 'error'"/><br/>
+
+        <label for="password" th:class="${#fields.hasErrors('password')}?'error'">Password:</label>
+        <input type="password" id="password" th:field="*{password}"
+               th:class="${#fields.hasErrors('password')}?'error'"/><br/>
+
+        <label for="fullName" th:class="${#fields.hasErrors('fullName')}?'error'">FullName:</label>
+        <input type="text" id="fullName" th:field="*{fullName}"
+               th:class="${#fields.hasErrors('fullName')}?'error'"/><br/>
+
+        <label for="email" th:class="${#fields.hasErrors('email')}?'error'">Email:</label>
+        <input type="text" id="email" th:field="*{email}" th:class="${#fields.hasErrors('email')}?'error'"/><br/>
+
+        <label for="updateByEmail" th:class="${#fields.hasErrors('updateByEmail')}?'error'">UpdateByEmail:</label>
+        <input type="text" id="updateByEmail" th:field="*{updateByEmail}"
+               th:class="${#fields.hasErrors('updateByEmail')}?'error'"/><br/>
+
+        <label for="status" th:class="${#fields.hasErrors('status')}">Status:</label>
+        <input type="text" id="status" th:field="*{status}" th:class="${#fields.hasErrors('status')}"/><br/>
+
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+
+<div id="footer" th:include="page :: copy"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spittles</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+</head>
+<body>
+<div id="header" th:include="page :: header"></div>
+
+<div id="content">
+    <div class="listTitle">
+        <h1>Recent Spittles...</h1>
+        <ul class="spittleList">
+            <li th:each="spittle:${spittleList}" th:id="'spittle'+${spittle.id}">
+                <div class="spittleMessage" th:text="${spittle.message}">Spittle Message</div>
+                <div class="spittleTime" th:text="${spittle.postTime}">Spittle PostTime</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="footer" th:include="page :: copy"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration scan="true" scanPeriod="1 seconds">
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <jmxConfigurator/>
+
+    <property name="LOG_HOME" value="/logs"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd hh.mm.ss.SSS} [%thread] %-5level %logger{50} --- %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!--<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<RollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<FileNamePattern>${LOG_HOME}/chapter16.MessageConverter.%d{yyyy-MM-dd}.log</FileNamePattern>-->
+            <!--<MaxHistory>7</MaxHistory>-->
+        <!--</RollingPolicy>-->
+        <!--<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+            <!--<pattern>%d{yyyy-MM-dd hh.mm.ss.SSS} [%thread] %-5level %logger{50} -&#45;&#45; %msg%n</pattern>-->
+            <!--<charset>utf-8</charset>-->
+        <!--</encoder>-->
+        <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+            <!--<MaxFileSize>10MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+    <!--</appender>-->
+
+    <root level="info">
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="file"/>-->
+    </root>
+
+</configuration>

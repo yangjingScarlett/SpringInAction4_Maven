@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CreateSpittle</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+    <script type="text/javascript">
+        function createSpittle() {
+            var message = $('#message').val();
+            $.ajax({
+                type: "post",
+                url: "/spittles/create",
+                dataType: "json",
+                contentType: "application/json",
+                data: {
+                    "message": message
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="content">
+    <h1>Welcome to create a new Spittle...</h1>
+    <form method="post" th:object="${spittle}" th:action="@{/spittles/create}">
+        <ul>
+            <li>
+                <label for="message">Message</label>
+                <input type="text" id="message" th:field="*{message}"/>
+            </li>
+            <li>
+                <input type="submit" value="Create" onclick="createSpittle()"/>
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

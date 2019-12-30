@@ -30,7 +30,7 @@
     </modules>
 
     <properties>
-        <spring.version>4.3.9.RELEASE</spring.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
         <spring.security.version>4.2.3.RELEASE</spring.security.version>
         <spring.data.version>1.11.6.RELEASE</spring.data.version>
         <junit.version>4.12</junit.version>

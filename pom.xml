@@ -45,7 +45,7 @@
         <druid.version>1.0.29</druid.version>
         <thymeleaf.version>2.1.3.RELEASE</thymeleaf.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
-        <c3p0.version>0.9.5.2</c3p0.version>
+        <c3p0.version>0.9.5.4</c3p0.version>
         <oracle.version>10.2.0.4.0</oracle.version>
         <hibernate.version>5.2.2.Final</hibernate.version>
     </properties>

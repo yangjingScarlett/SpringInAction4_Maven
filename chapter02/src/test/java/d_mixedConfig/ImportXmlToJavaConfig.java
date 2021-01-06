@@ -17,7 +17,7 @@ public class ImportXmlToJavaConfig {
     private MediaPlayer mediaPlayer;
 
     @Test
-    public void playing(){
+    public void playing() {
         mediaPlayer.play();
     }
 

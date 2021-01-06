@@ -10,11 +10,8 @@ import lombok.Setter;
 @Setter
 public class DamselRescuingKnight implements Knight {
 
+    // it will be automatically set by Spring IOC, because we set up it in the /spring/knight.xml context
     private RescueDamselQuest quest;
-
-    public DamselRescuingKnight() {
-        this.quest = new RescueDamselQuest();
-    }//紧耦合
 
     @Override
     public void embarkOnQuest() {

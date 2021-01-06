@@ -11,10 +11,12 @@ import static org.mockito.Mockito.*;
 
 /**
  * Created by yangjing on 2018/1/2
+ * <p>
+ * using Java Code to set up spring context: @ContextConfiguration(classes = KnightConfig.class)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = KnightConfig.class)//加载上下文，否则无法找到bean
-public class KnightTest {
+public class BraveKnightTest {
 
     @Autowired
     private Knight knight;

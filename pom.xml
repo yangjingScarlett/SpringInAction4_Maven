@@ -6,8 +6,10 @@
 
     <groupId>com.yang.spring4</groupId>
     <artifactId>my_springInAction4</artifactId>
+    <!--packing 为 pom 意味着这是一个父pom文件-->
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <!--modules 列出了所有的子项目-->
     <modules>
         <module>chapter01</module>
         <module>chapter02</module>
@@ -50,6 +52,8 @@
         <hibernate.version>5.2.2.Final</hibernate.version>
     </properties>
 
+    <!--the dependencyManagement declares the versions of dependencies, then child doesn't need to
+    config the version when they declare the dependencies-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -160,6 +164,11 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.fusesource.jansi</groupId>
+                <artifactId>jansi</artifactId>
+                <version>1.18</version>
             </dependency>
 
             <dependency>

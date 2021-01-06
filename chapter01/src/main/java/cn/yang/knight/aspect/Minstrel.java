@@ -1,10 +1,11 @@
 package cn.yang.knight.aspect;
 
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Aspect
-@Slf4j
 public class Minstrel {
+
+    Logger log = LoggerFactory.getLogger(Minstrel.class);
 
     @Pointcut("@annotation(cn.yang.knight.aspect.MinstrelNeeding)")
     public void annotationPointcut() {

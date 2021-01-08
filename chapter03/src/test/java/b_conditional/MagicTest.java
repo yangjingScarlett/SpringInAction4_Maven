@@ -19,6 +19,7 @@ public class MagicTest {
     private MagicBean magicBean;
 
     @Test
+    // Will fail if the magicBean doesn't match the condition
     public void magicTest() {
         assertNotNull(magicBean);
         System.out.println("Name : " + magicBean.getName());

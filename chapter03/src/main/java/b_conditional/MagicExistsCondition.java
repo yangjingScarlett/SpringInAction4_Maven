@@ -12,6 +12,9 @@ public class MagicExistsCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+        // The context.getEnvironment() will get current system environment,
+        // so you must set it in the environment variables it you want to make it work
+        System.out.println(context.getEnvironment().getProperty("magic"));
         return context.getEnvironment().containsProperty("magic");
     }
 

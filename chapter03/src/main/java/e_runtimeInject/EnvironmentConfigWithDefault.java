@@ -14,12 +14,17 @@ import org.springframework.core.env.Environment;
 @PropertySource(value = "classpath:e_runtimeInject/app.properties", encoding = "UTF-8")
 public class EnvironmentConfigWithDefault {
 
-    @Autowired
     private Environment environment;
+
+    @Autowired
+    public EnvironmentConfigWithDefault(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public BlankDisc blankDisc() {
-        return new BlankDisc(environment.getProperty("titleWithDefault", "发如雪"), environment.getProperty("artistWithDefault", "周杰伦"));
+        return new BlankDisc(environment.getProperty("titleWithDefault", "发如雪"),
+            environment.getProperty("artistWithDefault", "周杰伦"));
     }
 
 }

@@ -14,12 +14,17 @@ import org.springframework.core.env.Environment;
 @PropertySource(value = "classpath:e_runtimeInject/app.properties", encoding = "UTF-8")
 public class EnvironmentConfigWithRequiredProperties {
 
-    @Autowired
     private Environment environment;
+
+    @Autowired
+    public EnvironmentConfigWithRequiredProperties(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public BlankDisc blankDisc() {
-        return new BlankDisc(environment.getRequiredProperty("title"), environment.getRequiredProperty("artist"));
+        return new BlankDisc(environment.getRequiredProperty("title"),
+            environment.getRequiredProperty("artist"));
     }
 
 }

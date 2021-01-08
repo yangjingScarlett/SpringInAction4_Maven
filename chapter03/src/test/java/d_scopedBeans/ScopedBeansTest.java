@@ -9,6 +9,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Created by yangjing on 2018/1/4
+ * <p>
+ * Spring IOC 容器中的 bean 如果不指定 scope 则默认为 singleton， 意味着整个上下文中只有一个实例， 可以 用 @Scope() 来指定 bean 的
+ * scope。
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ComponentScanConfig.class)

@@ -14,8 +14,12 @@ import org.springframework.core.env.Environment;
 @PropertySource(value = "classpath:e_runtimeInject/app.properties", encoding = "UTF-8")
 public class EnvironmentConfig {
 
-    @Autowired
     private Environment environment;
+
+    @Autowired
+    public EnvironmentConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public BlankDisc blankDisc() {

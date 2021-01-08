@@ -488,7 +488,7 @@ UML 序列图：
                         instrumentation组件以及校验Validation 方面的相关类",
         "spring-beans": "这个 jar 包是所有应用都要用到的，它包含访问配置文件、创建和管理 bean 以及进行 IOC/DI 操作相关的所有类，如果你的应用只需要基本的 
                         IOC/DI 支持，只需引入 spring-core.jar 和 spring-beans.jar 就够了",
-        "spring-aop": "这个 jar 文件包含在应用中使用 AOP 特性时所需的类和源码级元数据支持。使用基于 AOP 的特性，如声明型事务管理，都要在应用中包含这个 jar 包",
+        "spring-aop": "这个 jar 文件包含在应用中使用 AOP 特性时所需的类和源码级元数据支持。 它是在运行时动态管理切面",
         
         "spring-aspect": "提供对 AspectJ 的支持，可以方便的将面向方面的功能集成进 IDE 中",
         "spring-context-support": "包含支持缓存Cache(encache)，JCA，JMX, 邮件服务（Java Mail/COS Mail），任务计划Scheduling（Timer,Quartz）方面的类",
@@ -553,8 +553,11 @@ UML 序列图：
         
         "hibernate-core": "Hibernate的核心实现，提供了Hibernate所有的核心功能。",
         "hibernate-annotation": "Hibernate支持annotation方式配置的基础，它包括了标准的JPA annotation以及Hibernate自身特殊功能的annotation。",
-        "hibernate-entitymanager": "Hibernate通过hibernate-entitymanager包完成了对于JPA的全部支持工作。",
-        "hibernate-validator": ""
+        "hibernate-entitymanager": "Hibernate通过hibernate-entitymanager包完成了对于JPA的全部支持工作。
+            Hibernate EntityManager实现了EJB3.0 JPA规范。Hibernate Java Persistence provider通过了Sun TCK测试和完全认证，你可以在Java SE 5.0，
+            或Java EE 5.0以上的任何环境里使用Hibernate Java Persistence provider。",
+        "hibernate-validator": "是 Bean Validation 的参考实现 . Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint 的实现，
+            除此之外还有一些附加的 constraint。 Bean Validation 为 JavaBean 验证定义了相应的元数据模型和API。"
     },
     
     "com.oracle": {

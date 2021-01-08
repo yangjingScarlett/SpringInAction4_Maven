@@ -17,10 +17,14 @@ public class DiscPlayTest {
     private CompactDisc compactDisc;
 
     @Test
-    public void discPlayTest(){
+    public void discPlayTest() {
         compactDisc.play(1);
-        compactDisc.play(1);
-        compactDisc.play(1);
+        compactDisc.play(2);
+        compactDisc.play(3);
+        System.out.println("\n============Repeat 3 times to play the fourth track===========");
+        compactDisc.play(4);
+        compactDisc.play(4);
+        compactDisc.play(4);
     }
 
 }

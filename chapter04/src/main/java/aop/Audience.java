@@ -5,6 +5,9 @@ import org.aspectj.lang.annotation.*;
 
 /**
  * Created by yangjing on 2018/1/8
+ * <p>
+ * This is a aspect class because it has @Aspect annotation. But it is not bean here, need to setup
+ * it as bean in context configuration: PerformanceConfig.class
  */
 @Aspect
 public class Audience {
@@ -35,14 +38,16 @@ public class Audience {
     }
 
     @Around("performance()")
-    public void watchPerformance(ProceedingJoinPoint joinPoint) {
+    public Object watchPerformance(ProceedingJoinPoint joinPoint) {
         System.out.println("The critics enter!");
         System.out.println("The critics take seats!");
         try {
-            joinPoint.proceed();
+            Object res = joinPoint.proceed();
             System.out.println("The critics all say that this is a wonderful performance!");
+            return res;
         } catch (Throwable throwable) {
-            System.out.println("The critics judge the performance as a terrible performance!!");
+            throw new RuntimeException(
+                "The critics judge the performance as a terrible performance!!");
         }
     }
 

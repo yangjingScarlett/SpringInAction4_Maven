@@ -15,7 +15,7 @@ import java.util.List;
 public class DiscPlayConfig {
 
     @Bean
-    public CompactDisc compactDisc(){
+    public CompactDisc compactDisc() {
         SgtPeppers sgtPeppers = new SgtPeppers();
         List<String> trackList = new ArrayList<>();
         trackList.add("勇气");
@@ -31,7 +31,7 @@ public class DiscPlayConfig {
     }
 
     @Bean
-    public TrackCounter trackCounter(){
+    public TrackCounter trackCounter() {
         return new TrackCounter();
     }
 

@@ -13,21 +13,21 @@ import java.util.Map;
 @Aspect
 public class TrackCounter {
 
-    private Map<Integer,Integer> countTrackMap = new HashMap<>();
+    private Map<Integer, Integer> countTrackMap = new HashMap<>();
 
     @Pointcut("execution(* *.play(int)) && args(trackNum)")
-    public void trackPlayed(int trackNum){
+    public void trackPlayed(int trackNum) {
     }
 
-    @Before("trackPlayed(trackNum)")
-    public void countTrack(int trackNum){
+    @Before(value = "trackPlayed(trackNum)", argNames = "trackNum")
+    public void countTrack(int trackNum) {
         int currentCount = getPlaytCount(trackNum) + 1;
-        countTrackMap.put(trackNum,currentCount);
+        countTrackMap.put(trackNum, currentCount);
         System.out.println("Play " + currentCount + " times!");
     }
 
-    public int getPlaytCount(int trackNum){
-        return countTrackMap.containsKey(trackNum)?countTrackMap.get(trackNum):0;
+    public int getPlaytCount(int trackNum) {
+        return countTrackMap.getOrDefault(trackNum, 0);
     }
 
 }

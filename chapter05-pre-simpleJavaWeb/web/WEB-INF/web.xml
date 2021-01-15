@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>/views/login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <listener>
+        <!--创建自定义的监听器，用来启动和停止数据库-->
+        <listener-class>simpleJavaWeb.initConfig.DataSourceStartListener</listener-class>
+    </listener>
+
+    <!--这里使用H2控制台的Servlet，H2控制台是一个独立的应用程序，包括它自己的Web服务器，但它可以作为一个servlet-->
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <init-param>
+            <param-name>webAllowOthers</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--映射H2控制台的访问路径：启动web程序后，任何 url 为 /console/xxx 形式的请求都会自动被 org.h2.server.web.WebServlet 处理-->
+    <!--如：在web应用成功启动后，在浏览器地址栏输入：http://localhost:8080/console/，会自动帮我们打开 H2 的控制台-->
+    <!--上述行为成功的前提是把 Tomcat deployment 的 application context 路径设置为 /，否者需要调整为自己设置的路径-->
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/console/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mainServlet</servlet-name>
+        <servlet-class>simpleJavaWeb.controller.MyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mainServlet</servlet-name>
+        <!--这里意味着所有的请求都会被 MyServlet 类处理-->
+        <url-pattern>/simpleJavaWeb/*</url-pattern>
+    </servlet-mapping>
+</web-app>

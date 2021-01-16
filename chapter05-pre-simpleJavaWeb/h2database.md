@@ -24,7 +24,7 @@ H2 是一种嵌入式数据库，可以非常方便的做一些个人项目，�
     > java -cp h2-*.jar org.h2.tools.Shell
 
     按照指引一步步创建本地数据库，如下图所示：  
-    ![](h2CreateDB.PNG)
+    ![](picturesForMd/h2CreateDB.PNG)
     
     上述命令执行完毕后，将在用户目录下生成名称为 testdb.mv.db 的数据库文件。数据库名称为 testdb、连接账号
     为 tester、连接密码为 password，这些参数都可以按需指定，指定的账号 tester 将自动视为数据库 testdb 的管理员账号。
@@ -102,7 +102,7 @@ H2 是一种嵌入式数据库，可以非常方便的做一些个人项目，�
     
     启动后会自动用默认浏览器打开 http://localhost:8082。默认浏览器也可通过系统环境变量 BROWSER 或者 
     java 属性 h2.browser 来配置。界面截图如下：
-    ![](h2ServerConsole.PNG)
+    ![](picturesForMd/h2ServerConsole.PNG)
     
     此方式启动成功后，系统托盘也会出现一个 h2 的小图标，点击可以看到如下功能菜单：  
     - H2 Console < 点击打开浏览器 Console
@@ -110,7 +110,7 @@ H2 是一种嵌入式数据库，可以非常方便的做一些个人项目，�
     - Status < 弹出窗口告诉你浏览器的链接
     - Exit  
     如下图所示：  
-    ![](h2ServerConnectSuccess.PNG)
+    ![](picturesForMd/h2ServerConnectSuccess.PNG)
     点击 'Create a new Database...' 对应图中的 PIC1、点击 'Status' 对应图中的 PIC2
     
     > 只有通过这种方式启动的 H2，才允许通过浏览器访问数据库及有系统托盘图标。

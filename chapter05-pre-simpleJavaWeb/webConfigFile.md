@@ -140,3 +140,23 @@ web.xml的模式文件是由Sun公司定义的，每个web.xml文件的根元素
     <session-timeout>60</session-timeout>
   </session-config>
   ```
+  
+#### 五、 启动本 web 应用。
+1. 配置 project structure  
+    打开 project structure，选中当前的 module（因为该项目是个多 modules 的项目，别的module可能也有问题，不过暂时忽略
+    别的module，只针对当前的module）依次进行 project setting。
+    - 配置 modules:
+    ![](picturesForMd/projectStructure-modules.png)
+    - 配置 facets:
+    ![](picturesForMd/projectStructure-facets.png)
+    - 配置 artifacts:
+    ![](picturesForMd/projectStructure-artifacts.png)
+    在完成上述配置之后，当前 module 的结构看起来应该和下图一致：
+    ![](picturesForMd/project.png)
+2. 完成 project structure 配置之后，接下来进行 tomcat server 的配置，当然也可以选择别的 WEB 服务器，这里只是用 tomcat 
+    作为示例。这里使用的 tomcat 版本是 Tomcat8.5.12.
+    - tomcat server 配置:
+    ![](picturesForMd/tomcatServer.png)
+    - tomcat deployment 配置:
+    ![](picturesForMd/tomcatSetting.png)
+    

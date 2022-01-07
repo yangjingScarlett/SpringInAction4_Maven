@@ -51,7 +51,7 @@
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <c3p0.version>0.9.5.4</c3p0.version>
         <oracle.version>10.2.0.4.0</oracle.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.0.206</h2.version>
         <hibernate.version>5.4.21.Final</hibernate.version>
         <hibernate-validator.version>5.3.5.Final</hibernate-validator.version>
         <aspectj.version>1.9.5</aspectj.version>
